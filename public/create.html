@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gray-900 text-white px-4">
+    <header class="flex justify-between items-center h-[5rem]">
+      <div>
+        <span>Electiva Proyecto</span>
+      </div>
+      <nav>
+        <ul class="flex justify-center items-center gap-2">
+          <li>
+            <a
+              class="bg-gray-700 px-3 py-2 rounded-lg transition-colors duration-300 hover:bg-indigo-500"
+              href="/"
+              >Todos</a
+            >
+          </li>
+          <li>
+            <a
+              class="bg-gray-700 px-3 py-2 rounded-lg transition-colors duration-300 hover:bg-indigo-500"
+              href="/create"
+              >Crear</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main
+      class="flex justify-center items-center h-[calc(100vh-5rem)] flex-col"
+    >
+      <span class="text-2xl font-bold bg-green-500 w-[30%] mb-5 rounded-md p-2 hidden" id="success">Producto Creado Exitosamente</span>
+      <span class="text-2xl font-bold bg-red-500 w-[30%] mb-5 rounded-md p-2 hidden" id="error"></span>
+      <form
+        class="space-y-4 bg-gray-700 p-4 rounded-md w-[30%]"
+        id="form-create"
+      >
+        <div class="flex items-start gap-2 flex-col">
+          <label for="name">Nombre del Producto</label>
+          <input
+            id="name"
+            name="name"
+            type="text"
+            placeholder="Write your name..."
+            class="px-2 rounded-md h-10 bg-gray-950 w-full"
+          />
+          <span id="name-error" class="w-full text-red-500"></span>
+        </div>
+        <div class="flex items-start gap-2 flex-col">
+          <label for="code">Code</label>
+          <input
+            id="code"
+            type="number"
+            name="code"
+            placeholder="Write your code..."
+            class="px-2 rounded-md h-10 bg-gray-950 w-full"
+          />
+          <span id="code-error" class="w-full text-red-500"></span>
+        </div>
+        <div class="flex items-start gap-2 flex-col">
+          <label for="category">Category</label>
+          <input
+            id="category"
+            name="category"
+            placeholder="Write your category..."
+            class="px-2 rounded-md h-10 bg-gray-950 w-full"
+          />
+          <span id="category-error" class="w-full text-red-500"></span>
+        </div>
+        <div class="flex items-start gap-2 flex-col">
+          <label for="price">Price</label>
+          <input
+            id="price"
+            type="number"
+            name="price"
+            placeholder="Write your category..."
+            class="px-2 rounded-md h-10 bg-gray-950 w-full"
+          />
+          <span id="price-error" class="w-full text-red-500"></span>
+        </div>
+        <div class="flex flex-row-reverse items-center gap-2">
+          <button
+            type="submit"
+            class="bg-indigo-500 transition-colors duration-300 hover:bg-indigo-800 py-1 px-2 rounded-md"
+          >
+            Guardar
+          </button>
+          <button
+            type="reset"
+            class="bg-red-500 transition-colors duration-300 hover:bg-red-800 py-1 px-2 rounded-md"
+          >
+            Cancelar
+          </button>
+        </div>
+      </form>
+    </main>
+    <script src="./js/index.js"></script>
+  </body>
+</html>

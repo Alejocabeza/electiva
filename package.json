@@ -1,0 +1,33 @@
+{
+  "name": "electiva",
+  "version": "1.0.0",
+  "description": "Project Electiva",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "generate": "pnpm dlx prima generate",
+    "migrate:dev": "pnpm dlx prisma migrate dev",
+    "migrate:deploy": "pnpm dlx prisma migrate deploy",
+    "db:push": "pnpm dlx prisma db push",
+    "build:css": "npx tailwindcss -i ./public/css/index.css -o ./public/css/output.css --minify"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@prisma/client": "5.20.0",
+    "cors": "^2.8.5",
+    "express": "^4.21.0",
+    "morgan": "^1.10.0",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.0",
+    "@types/morgan": "^1.9.9",
+    "dotenv": "^16.4.5",
+    "nodemon": "^3.1.7",
+    "prisma": "^5.20.0",
+    "tailwindcss": "^3.4.13"
+  }
+}
