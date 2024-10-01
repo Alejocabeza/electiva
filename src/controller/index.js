@@ -12,10 +12,23 @@ const getCreateController = (req, res) => {
   res.sendFile(path.join(__dirname, "../../public/create.html"));
 };
 
+const getUpdateController = (req, res) => {
+  res.sendFile(path.join(__dirname, "../../public/update.html"));
+};
+
 const getAllProductController = async (req, res) => {
   try {
     const products = await db.product.findMany();
     res.status(200).json(products);
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ error });
+  }
+};
+
+const getOneProductController = async (req, res) => {
+  try {
+    console.log(req.param)
   } catch (error) {
     console.log(error);
     res.status(500).json({ error });
@@ -38,7 +51,7 @@ const createProductController = async (req, res) => {
     if (error.code === "P2002") {
       res.status(400).json({
         error: "Product already exists",
-      })
+      });
     }
   }
 };
@@ -68,8 +81,10 @@ const deleteProductController = async (req, res) => {
 module.exports = {
   getIndexController,
   getCreateController,
+  getUpdateController,
   createProductController,
   updateProductController,
   deleteProductController,
   getAllProductController,
+  getOneProductController,
 };
