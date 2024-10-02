@@ -5,10 +5,10 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon index.js",
-    "generate": "pnpm dlx prima generate",
-    "migrate:dev": "pnpm dlx prisma migrate dev",
-    "migrate:deploy": "pnpm dlx prisma migrate deploy",
-    "db:push": "pnpm dlx prisma db push",
+    "generate": "npx prima generate",
+    "migrate:dev": "npx prisma migrate dev",
+    "migrate:deploy": "npx prisma migrate deploy",
+    "db:push": "npx prisma db push",
     "build:css": "npx tailwindcss -i ./public/css/index.css -o ./public/css/output.css --minify"
   },
   "keywords": [],
