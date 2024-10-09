@@ -1,51 +1,42 @@
-const path = require("path");
-const { db } = require("../lib/db");
 const {
   productCreateValidation,
+  productUpdateSchema,
 } = require("../validation/create-product.schema");
+const { findAll, findOne, remove, create: productCreate, update: productUpdate } = require("../repository/produts");
 
-const getIndexController = (req, res) => {
-  res.sendFile(path.join(__dirname, "../../public/index.html"));
+/**
+ * This function is used to render the home page
+ * @param {} req
+ * @param {*} res
+ */
+const index = async (req, res) => {
+  const products = await findAll();
+  res.render("home", { products });
 };
 
-const getCreateController = (req, res) => {
-  res.sendFile(path.join(__dirname, "../../public/create.html"));
+/**
+ * This function is used to render the create page
+ * @param {*} req
+ * @param {*} res
+ */
+const create = (req, res) => {
+  res.render("create");
 };
 
-const getUpdateController = (req, res) => {
-  res.sendFile(path.join(__dirname, "../../public/update.html"));
-};
-
-const getAllProductController = async (req, res) => {
+/**
+ * This function is used to store the data
+ * @param {*} req
+ * @param {*} res
+ */
+const store = async (req, res) => {
   try {
-    const products = await db.product.findMany();
-    res.status(200).json(products);
-  } catch (error) {
-    console.log(error);
-    res.status(500).json({ error });
-  }
-};
-
-const getOneProductController = async (req, res) => {
-  try {
-    console.log(req.param)
-  } catch (error) {
-    console.log(error);
-    res.status(500).json({ error });
-  }
-};
-
-const createProductController = async (req, res) => {
-  try {
-    const { body } = req;
-    const validation = productCreateValidation(body);
-    if (validation.error) {
+    const {body} = req
+    const validation = productCreateValidation(body)
+    if(validation.error){
       res.status(400).json({ error: validation.error });
       return;
     }
-    await db.product.create({
-      data: { ...body },
-    });
+    await productCreate(body)
     res.status(201).json({ message: "Product Created" });
   } catch (error) {
     if (error.code === "P2002") {
@@ -56,35 +47,66 @@ const createProductController = async (req, res) => {
   }
 };
 
-const updateProductController = async (req, res) => {
+/**
+ * This function is used to render the show page
+ * @param {*} req
+ * @param {*} res
+ */
+const show = async (req, res) => {
+  const { id } = req.params;
+  const product = await findOne(+id);
+  res.render("show", { product });
+};
+
+/**
+ * This function is used to render the edit page
+ * @param {*} req
+ * @param {*} res
+ */
+const edit = async (req, res) => {
+  const { id } = req.params;
+  const product = await findOne(+id);
+  res.render("update", { product });
+};
+
+/**
+ * This function is used to update the data
+ * @param {*} req
+ * @param {*} res
+ */
+const update = async (req, res) => {
   try {
-    console.log(req);
-    console.log(body);
-    res.status(200).json({ message: "Product Updated" });
+  const {id} = req.params
+  const {body} = req
+  const validated = productUpdateSchema(body)
+  if(validated.error){
+    res.status(400).json({ error: validated.error });
+    return;
+  } 
+    await productUpdate(+id, body)
+    res.status(200).json({ message: "Product Created" });
   } catch (error) {
-    console.log(error);
-    res.status(500).json({ error });
+    console.log(error)
   }
 };
 
-const deleteProductController = async (req, res) => {
-  try {
-    console.log(req);
-    console.log(body);
-    res.status(200).json({ message: "Product Deleted" });
-  } catch (error) {
-    console.log(error);
-    res.status(500).json({ error });
-  }
+/**
+ * THis function is used to delete the data
+ * @param {*} req
+ * @param {*} res
+ */
+const destroy = async (req, res) => {
+  const { id } = req.params;
+  const dataToReturn = await remove(+id);
+  res.render("delete", { value: dataToReturn ? true : false });
 };
 
 module.exports = {
-  getIndexController,
-  getCreateController,
-  getUpdateController,
-  createProductController,
-  updateProductController,
-  deleteProductController,
-  getAllProductController,
-  getOneProductController,
+  index,
+  create,
+  store,
+  show,
+  edit,
+  update,
+  destroy,
 };

@@ -1,0 +1,38 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Electiva</title>
+    <script type="module" src="/js/index.js"></script>
+  </head>
+  <body class="bg-gray-900 text-white px-4">
+    <header class="flex justify-between items-center h-[5rem]">
+      <a
+        href=".."
+        class="flex justify-center items-center gap-x-2 bg-gray-800 rounded-lg px-3 py-2 transition-colors durations-300 hover:bg-indigo-500"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="icon icon-tabler icons-tabler-outline icon-tabler-arrow-left"
+        ><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path
+            d="M5 12l14 0"
+          /><path d="M5 12l6 6" /><path d="M5 12l6 -6" /></svg>
+        Atras
+      </a>
+    </header>
+    <main
+      class="flex justify-center items-center h-[calc(100vh-5rem)] flex-col space-y-3"
+    >
+      {{{body}}}
+    </main>
+  </body>
+</html>

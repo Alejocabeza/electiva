@@ -5,11 +5,11 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon index.js",
-    "generate": "npx prima generate",
-    "migrate:dev": "npx prisma migrate dev",
-    "migrate:deploy": "npx prisma migrate deploy",
-    "db:push": "npx prisma db push",
-    "build:css": "npx tailwindcss -i ./public/css/index.css -o ./public/css/output.css --minify"
+    "generate": "pnpm dlx prima generate",
+    "migrate:dev": "pnpm dlx prisma migrate dev",
+    "migrate:deploy": "pnpm dlx prisma migrate deploy",
+    "db:push": "pnpm dlx prisma db push",
+    "build:css": "pnpm dlx tailwindcss -i ./public/css/index.css -o ./public/css/output.css --minify"
   },
   "keywords": [],
   "author": "",
@@ -18,6 +18,7 @@
     "@prisma/client": "5.20.0",
     "cors": "^2.8.5",
     "express": "^4.21.0",
+    "express-handlebars": "^8.0.1",
     "morgan": "^1.10.0",
     "zod": "^3.23.8"
   },

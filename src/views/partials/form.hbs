@@ -1,0 +1,70 @@
+<form
+  class="space-y-4 bg-gray-700 p-4 rounded-md w-[60%] lg:w-[35%]"
+  id="form-create"
+  data-action="{{action}}"
+>
+  <div>
+    <h1 class="text-3xl font-bold">{{titleForm}} {{product.name}}</h1>
+  </div>
+  <div class="flex items-start gap-2 flex-col">
+    <label for="name">Nombre del Producto</label>
+    <input
+      id="name"
+      name="name"
+      value="{{product.name}}"
+      type="text"
+      placeholder="Write your name..."
+      class="px-2 rounded-md h-10 bg-gray-800 w-full"
+    />
+    <span id="name-error" class="w-full text-red-500"></span>
+  </div>
+  <div class="flex items-start gap-2 flex-col">
+    <label for="code">Code</label>
+    <input
+      id="code"
+      type="number"
+      value="{{product.code}}"
+      name="code"
+      placeholder="Write your code..."
+      class="px-2 rounded-md h-10 bg-gray-800 w-full"
+    />
+    <span id="code-error" class="w-full text-red-500"></span>
+  </div>
+  <div class="flex items-start gap-2 flex-col">
+    <label for="category">Category</label>
+    <input
+      id="category"
+      name="category"
+      value="{{product.category}}"
+      placeholder="Write your category..."
+      class="px-2 rounded-md h-10 bg-gray-800 w-full"
+    />
+    <span id="category-error" class="w-full text-red-500"></span>
+  </div>
+  <div class="flex items-start gap-2 flex-col">
+    <label for="price">Price</label>
+    <input
+      id="price"
+      type="number"
+      name="price"
+      value="{{product.price}}"
+      placeholder="Write your category..."
+      class="px-2 rounded-md h-10 bg-gray-800 w-full"
+    />
+    <span id="price-error" class="w-full text-red-500"></span>
+  </div>
+  <div class="flex flex-row-reverse items-center gap-2">
+    <button
+      type="submit"
+      class="bg-indigo-500 transition-colors duration-300 hover:bg-indigo-800 py-1 px-2 rounded-md"
+    >
+      Guardar
+    </button>
+    <button
+      type="reset"
+      class="bg-red-500 transition-colors duration-300 hover:bg-red-800 py-1 px-2 rounded-md"
+    >
+      Cancelar
+    </button>
+  </div>
+</form>

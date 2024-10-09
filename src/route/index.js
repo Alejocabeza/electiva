@@ -1,27 +1,24 @@
-const {
-  getIndexController,
-  getCreateController,
-  getUpdateController,
-  createProductController,
-  updateProductController,
-  deleteProductController,
-  getAllProductController,
-  getOneProductController,
-} = require("../controller");
 const { Router } = require("express");
+const {
+  index,
+  create,
+  update,
+  edit,
+  store,
+  show,
+  destroy,
+} = require("../controller");
 
 const route = Router();
 
 // route web
-route.get("/", getIndexController);
-route.get("/create", getCreateController);
-route.get("/update/:id", getUpdateController);
+route.get("/", index);
+route.get("/create", create);
+route.get("/show/:id", show);
+route.get("/edit/:id", edit);
+route.get("/delete/:id", destroy);
 
-// route api
-route.get("/find-all", getAllProductController);
-route.get('/find-one/:id', getOneProductController);
-route.post("/create", createProductController);
-route.put("/update/:id", updateProductController);
-route.delete("/delete/:id", deleteProductController);
+route.post("/store", store);
+route.patch("/update/:id", update);
 
 module.exports = { route };
