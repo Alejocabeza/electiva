@@ -6,6 +6,9 @@
   <div>
     <h1 class="text-3xl font-bold">{{titleForm}} {{product.name}}</h1>
   </div>
+  <div>
+    <span id="success" class="w-full text-green-500 hidden"></span>
+  </div>
   <div class="flex items-start gap-2 flex-col">
     <label for="name">Nombre del Producto</label>
     <input
@@ -13,42 +16,42 @@
       name="name"
       value="{{product.name}}"
       type="text"
-      placeholder="Write your name..."
+      placeholder="Nombre del Producto..."
       class="px-2 rounded-md h-10 bg-gray-800 w-full"
     />
     <span id="name-error" class="w-full text-red-500"></span>
   </div>
   <div class="flex items-start gap-2 flex-col">
-    <label for="code">Code</label>
+    <label for="code">Código del Producto</label>
     <input
       id="code"
       type="number"
       value="{{product.code}}"
       name="code"
-      placeholder="Write your code..."
+      placeholder="Código del Producto..."
       class="px-2 rounded-md h-10 bg-gray-800 w-full"
     />
     <span id="code-error" class="w-full text-red-500"></span>
   </div>
   <div class="flex items-start gap-2 flex-col">
-    <label for="category">Category</label>
+    <label for="category">Categoría del Producto</label>
     <input
       id="category"
       name="category"
       value="{{product.category}}"
-      placeholder="Write your category..."
+      placeholder="Categoría del Producto..."
       class="px-2 rounded-md h-10 bg-gray-800 w-full"
     />
     <span id="category-error" class="w-full text-red-500"></span>
   </div>
   <div class="flex items-start gap-2 flex-col">
-    <label for="price">Price</label>
+    <label for="price">Precio del Producto</label>
     <input
       id="price"
       type="number"
       name="price"
       value="{{product.price}}"
-      placeholder="Write your category..."
+      placeholder="Precio del Producto..."
       class="px-2 rounded-md h-10 bg-gray-800 w-full"
     />
     <span id="price-error" class="w-full text-red-500"></span>

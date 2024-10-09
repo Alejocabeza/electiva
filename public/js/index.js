@@ -49,6 +49,7 @@ if (createForm) {
               errorElement.textContent = "";
             }
           });
+          success.textContent = "El producto se actualizo satisfactoriamente";
           success.classList.remove("hidden");
           setTimeout(() => {
             success.classList.add("hidden");
@@ -110,6 +111,8 @@ if (updateForm) {
               errorElement.textContent = "";
             }
           });
+          console.log(success)
+          success.textContent = "El producto se actualizo satisfactoriamente";
           success.classList.remove("hidden");
           setTimeout(() => {
             success.classList.add("hidden");

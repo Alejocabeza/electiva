@@ -33,24 +33,42 @@
       class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400"
     >
       <tr>
-        <th scope="col" class="px-6 py-3">Product name</th>
-        <th scope="col" class="px-6 py-3">Category</th>
-        <th scope="col" class="px-6 py-3">Price</th>
-        <th scope="col" class="px-6 py-3">Action</th>
+        <th scope="col" class="px-6 py-3 text-center">Nombre del Producto</th>
+        <th scope="col" class="px-6 py-3 text-center">Categoría del Producto</th>
+        <th scope="col" class="px-6 py-3 text-center">Precio del Producto</th>
+        <th scope="col" class="px-6 py-3 text-center">Acciones</th>
       </tr>
     </thead>
     <tbody class="bg-gray-800">
       {{#each products}}
-        <tr
-          class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700"
-        >
+        <tr>
           <td
-            class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+            class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white text-center"
           >{{name}}</td>
-          <td class="px-6 py-4">{{category}}</td>
-          <td class="px-6 py-4">{{price}}</td>
-          <td class="px-6 py-4">{{{action}}}</td>
-          <td class="px-6 py-4 flex space-x-2">
+          <td class="px-6 py-4 text-center">{{category}}</td>
+          <td class="px-6 py-4 text-center">{{price}}</td>
+          <td class="px-6 py-4 flex space-x-2 justify-center items-center">
+            <a
+              href="/show/{{id}}"
+              class="font-medium text-white rounded-md p-2 bg-green-500 transition-colors duration-300 hover:bg-green-800"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="icon icon-tabler icons-tabler-outline icon-tabler-eye"
+              ><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path
+                  d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0"
+                /><path
+                  d="M21 12c-2.4 4 -5.4 6 -9 6c-3.6 0 -6.6 -2 -9 -6c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6"
+                /></svg>
+            </a>
             <a
               href="/edit/{{id}}"
               class="font-medium text-white rounded-md p-2 bg-indigo-500 transition-colors duration-300 hover:bg-indigo-800"

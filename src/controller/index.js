@@ -98,7 +98,11 @@ const update = async (req, res) => {
 const destroy = async (req, res) => {
   const { id } = req.params;
   const dataToReturn = await remove(+id);
-  res.render("delete", { value: dataToReturn ? true : false });
+  if (dataToReturn) {
+    res.redirect("/");
+  }else{
+    res.render("delete", { value: dataToReturn ? true : false });
+  }
 };
 
 module.exports = {
